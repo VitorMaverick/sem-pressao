@@ -1,0 +1,13 @@
+.container{
+    display:block;
+    
+}
+.container main{
+    margin: 8rem auto auto auto;
+    padding: 2rem;
+    width: 700px;
+    background: var(--color-box-footer);
+    border-radius: 1%;
+    border: .2px solid var(--color-line-in-white);
+
+}

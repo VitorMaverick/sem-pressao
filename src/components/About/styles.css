@@ -1,0 +1,112 @@
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+
+/* Sections Header
+--------------------------------*/
+
+.section-header h3 {
+    font-size: 36px;
+    color: #413e66;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .section-header p {
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+    padding-bottom: 60px;
+    color: #535074;
+    width: 50%;
+  }
+  
+  /* Section with background
+  --------------------------------*/
+  
+  .section-bg {
+    background: #f5f8fd;
+  }
+  
+  /* About Us Section
+  --------------------------------*/
+  
+  #about {
+    padding: 80px 0;
+  }
+  
+  #about .about-content {
+    padding-top: 40px;
+  }
+  
+  #about .about-content h2 {
+    color: #413e66;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+  }
+  
+  #about .about-content p {
+    color: #696592;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: italic;
+  }
+  
+  #about .about-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #about .about-content ul li {
+    padding-bottom: 10px;
+  }
+  
+  #about .about-content ul li i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #d3eb8f;
+  }
+  
+  #about .about-img {
+    position: relative;
+    margin: 30px 30px 30px 30px;
+  }
+  
+  #about .about-img img {
+    width: 100%;
+    border: 8px solid #fff;
+    transition: .5s;
+  }
+  
+  #about .about-img img:hover {
+    width: 100%;
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+  }
+  
+  #about .about-img::before {
+    position: absolute;
+    left: -31px;
+    top: -30px;
+    width: 90%;
+    height: 92%;
+    z-index: -1;
+    content: '';
+    background-color: #ebf1fa;
+    transition: .5s;
+  }
+  
+  #about .about-img::after {
+    position: absolute;
+    right: -31px;
+    bottom: -30px;
+    width: 90%;
+    height: 92%;
+    z-index: -1;
+    content: '';
+    background-color: #ebf1fa;
+    transition: .5s;
+  }
+  

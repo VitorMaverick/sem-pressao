@@ -1,0 +1,44 @@
+/*--------------------------------------------------------------
+# Intro Section
+--------------------------------------------------------------*/
+
+#intro {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: url("../../img/intro-bg.jpg") center top no-repeat;
+    background-size: cover;
+  }
+  
+  #intro .intro-info h2 {
+    color: #413e66;
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  
+  #intro .intro-info h2 span {
+    color: #d3eb8f;
+  }
+  
+  #intro .intro-info .btn-get-started,
+  #intro .intro-info .btn-services {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 4px;
+    transition: ease-in-out 0.5s;
+    color: #fff;
+    background: #d3eb8f;
+    color: #fff;
+  }
+  
+  #intro .intro-info .btn-get-started:hover{
+    
+    background: #acd241;
+  }
+  
