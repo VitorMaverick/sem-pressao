@@ -1,16 +1,17 @@
-import React from "react";
+import React  from "react";
 import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
 import "./styles.css";
 import "../../assets/styles/global.css"
 import convertHourToMinutes from "../../utils/convertHoutToMinutes";
 import convertToDays from '../../utils/ConverteToDays';
-
+import {Link} from "react-router-dom";
 
 
 
 
 
 const TeacherItem = ({ teacher }) => {
+  const number = "https://wa.me/" + teacher.whatsapp + "?text=Olá!%20Gostaria%20de%20saber%20mais%20informações%20sobre%20seus%20serviços.";
   return (
     <div id="item" className="teacher-item item">
       <article >
@@ -21,19 +22,22 @@ const TeacherItem = ({ teacher }) => {
               src={teacher.avatar}
               alt="profile image"
             />
+            <p className="bio text-align-left">
+            { teacher.bio}
+            </p>
           </div>
           
           <div>
               {
-                teacher.service ?
+                teacher.services ?
                   <div className="services">
-                    {teacher.service.map((services) => {
+                    {teacher.service.map((service) => {
                       return( 
                       <ul>
-                        <li><span>{services.subject}</span></li>
+                        <li><span>{service.subject}</span></li>
                         <li>
                           <p>Preço/Hora</p>
-                          <strong>R$ {services.cost}</strong>
+                          <strong>R$ {service.cost}</strong>
                         </li>
                         
                       </ul>
@@ -49,12 +53,10 @@ const TeacherItem = ({ teacher }) => {
           
         </header>
 
-        <p className="bio">
-        { teacher.bio}
-        </p>
+        
 
         <footer>
-        Horarios:
+        <p className="horario">Horarios:</p>
 
           {
           teacher.schedule ?
@@ -75,10 +77,12 @@ const TeacherItem = ({ teacher }) => {
           :
           'warnig'
         }
-          <button type="button">
+          <a href= {number} target="_blank" >
+          <button  type="button">
             <img src={whatsappIcon} alt="Whatsapp" />
             Entrar em contato
           </button>
+          </a>
         </footer>
       </article>
       </div>

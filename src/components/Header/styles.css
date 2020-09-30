@@ -90,10 +90,17 @@
 
 /* Desktop Navigation */
 
-.main-nav {
-    /* Drop Down */
-    /* Deep Drop Down */
+.main-nav .dropdown-item {
+  color: #413e66;
+  background: #fff;
+  
   }
+  li .dropdown-menu a:hover  {
+    color: #413e66;
+    background-color:#f0f0f7 !important;
+    
+    }
+    
   
   .main-nav,
   .main-nav * {
@@ -305,6 +312,7 @@
   }
   .green a:hover{
     background-color: #acd241 !important;
+    
     
     
   }

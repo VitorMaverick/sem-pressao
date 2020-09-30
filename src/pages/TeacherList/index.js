@@ -60,11 +60,11 @@ function TeacherList()  {
         <form id="search-teachers" onSubmit={searchTeachers}>
           <Select 
               name="subject" 
-              label="Matéria"
+              label="Serviço"
               value={subject}
               onChange={(e) => { setSubject(e.target.value) }}
               options={[
-                { value: 'Informatica', label: 'Informatica'},
+                { value: 'Meditação', label: 'Meditação'},
                 { value: 'Massagem relaxante', label: 'Massagem relaxante'},
                 { value: 'Quick Message', label: 'Quick Message'},
                 { value: 'Ventosa', label: 'Ventosa'}

@@ -1,0 +1,30 @@
+article .post-thumbnail-single{
+    margin-top:0 !important;
+}
+.post-thumbnail-single img{
+    
+    width:auto;
+  
+    height:400px!important;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  * Single */
+.single header h1{
+   font-weight: 700;
+}
+.single .post-thumbnail{
+   margin: 1rem 0;
+}
+
+
+.post-thumbnail-single img{
+  
+    min-width:100%;
+    padding: 0;
+
+  height:auto;
+  object-fit: cover;
+  margin:0 0 15px 0;
+}

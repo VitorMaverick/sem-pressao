@@ -10,11 +10,16 @@
     "bootstrap": "4.5.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "moment": "^2.29.0",
     "react": "^16.13.1",
+    "react-animated-slider": "^2.0.0",
     "react-dom": "^16.13.1",
+    "react-elastic-carousel": "^0.7.9",
+    "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.1.0",
     "react-scripts": "3.4.3",
+    "react-slick": "^0.27.11",
     "wow.js": "^1.2.2"
   },
   "scripts": {

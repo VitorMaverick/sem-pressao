@@ -1,50 +1,55 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Single from '../../pages/Single/'
+import Moment from  "react-moment"
 
 import "./styles.css";
 
 
-const PostaItem = ({ post }) => {
+const PostItem = ({ post, index }) => {
   return (
-        
-    <div class="card flex-lg-row  h-md-250 wow bounceInUp" data-wow-duration="1.4s">
-        <div class="post-thumbnail">
-         {
-            post.thumbnail?
-            //tamanho definido por post_thumbnail_size()
-            <div className=" card-img-right d-flex d-none ">{post.thumbnail}</div>
+    <article id="blog-posts" class="artigo">
+     
+      <div class="card flex-lg-row  h-md-250 wow bounceInUp" data-wow-duration="1.4s">
+          <div class="post-thumbnail">
+            {
+                post._embedded['wp:featuredmedia'][0].source_url?
+                //tamanho definido por post_thumbnail_size()
+                <img className="card-img-right d-flex d-none " src={post._embedded['wp:featuredmedia'][0].source_url}/>
 
-            :
-            
-            <img class="card-img-right flex-auto d-none d-lg-block" src="https://i.picsum.photos/id/1039/6945/4635.jpg?hmac=tdgHDygif2JPCTFMM7KcuOAbwEU11aucKJ8eWcGD9_Q" data-holder-rendered="true"/>
-         }
-        </div>    
-            
-        <div class="details text-center">
-            <div class="content ">
-            <p class="text-center">
-            <a href="http://twitter.com/intent/tweet?text=" title={post.title.rendered} target="_blank"><i class="fa fa-twitter"></i></a>
-            </p>
+                :
+                
+                <img class="card-img-right flex-auto d-none d-lg-block" src="https://i.picsum.photos/id/1/300/200.jpg?hmac=-NJkMeYPrdetftjjcJ9lbfAZcXVJhZy4rqGvbP0P8Hg" data-holder-rendered="true"/>
+            }
+            </div>    
+                
+            <div class="details text-center">
+                <div class="content ">
+                <p class="text-center">
+                
+                </p>
+                </div>
             </div>
-        </div>
-    
-        <div class="card-body d-flex flex-column align-items-start">
-        <h3 class="mb-0"><a href="<?php the_permalink(); ?>">post.title.rendered</a></h3>
-        <div class="meta text-muted mb-1">
-            <p class="">Publicado por {post.author}</p>
-            <a href="DATA">post.date</a>
-    
+        
+            <div class="card-body d-flex flex-column align-items-start">
+            <Link  to={`/single/${post.id}`} > {post.title.rendered} </Link>
+            <div class="meta text-muted">
+                <a><Moment fromNow>{post.date}</Moment></a>
+                
+        
+                
+            </div>
+            <div class="content card-content">
+            <div className="content" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></div>
+                
             
-        </div>
-        <div class="content card-content">
-            <p class="card-text mb-auto"> {post.content.rendered}</p>
-            <a href="LINK PARA PAGINA UNICA COM ID" title="Twittar sobre <?php the_title();?>" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+
         </div>
 
-    </div>
 
-
-  </div>
-
+      </div>
+    </article>    
       
 
       

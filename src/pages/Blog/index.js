@@ -2,7 +2,7 @@
 import React, { useState, FormEvent, useContext, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import Header  from "../../components/Header";
-import TeacherItem, { Teacher } from "../../components/TeacherItem";
+import Post, { Teacher } from "../../components/Post";
 import "./styles.css";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
@@ -10,98 +10,112 @@ import api from "../../services/api";
 import api_wp from "../../services/api_wp";
 import { AuthContext } from "../../context/Auth";
 import "../../assets/styles/global.css"
+import reload from  "../../assets/images/reload.gif"
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
+import {Link} from "react-router-dom"
 
 
 
 function PostList()  {
   const [posts, setPosts] = useState([]);
-  
-  
+  const [category, setCategory] = useState(0);
 
-  
+  const settings = {
+    dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      initialSlide: 0,
+  }
 
-  
   useEffect(  () => {
     const fetchData = async () => {
-      const response = await api.get('list');
+      const response = await api_wp.get('posts?_embed');
       setPosts(response.data);
       console.log(posts);
     }
     fetchData();
   } , [] )
 
-  async function listPosts(){
-    const response = await api.get('list');
-    setPosts(response.data);
-    console.log(teachers);    
-  }
-  
-
-
-  async function searchTeachers(e){
+  async function searchPosts(e){
     e.preventDefault();
 
-    const response = await api_wp.get('posts')
+    const response = await api_wp.get(`posts?categories=`+ category
+    );
     setPosts(response.data);
     } 
-
-
+   
   return (
-    <div id="page-teacher-list" className="container">
-      <Header />
-      <PageHeader >
-        <form id="search-teachers" onSubmit={searchTeachers}>
-          <Select 
-              name="subject" 
-              label="Matéria"
-              value={subject}
-              onChange={(e) => { setSubject(e.target.value) }}
+    
+    <div>
+      <div className="post-thumbnail-index">
+        {
+                  posts.length?
+                  //tamanho definido por post_thumbnail_size()
+                  <Slider >
+                  {posts.map((post, index) => {
+                    return( 
+                      <div key={index}
+                      style={{ background: `url('${post._embedded['wp:featuredmedia'][0].source_url}') no-repeat center center` }}
+                      >
+                        <div className="center">
+                          <Link to={`/single/${post.id}`} > {post.title.rendered} </Link>
+                         
+                            <div className="" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></div>
+                          
+                        </div>
+                      
+                      
+                      </div>);
+                      
+                  })}
+                  
+                  </Slider>
+                  :
+                  
+                  <img className="reload" src={reload} />
+                  
+              }
+        </div>
+      <div id="page-post-list" className="container">
+        <Header />
+        <div className="row">
+          <div className="col-md-8">
+            <main>
+            <div className="index-title"><h1>Últimos Posts</h1></div>
+          
+            {posts.map((post, index) => {
+              return( 
+                
+              <Post key= { post.id  } post={post} index={index}   />);
+            })}
+            </main>
+          </div>
+          <div className="col-md-4">
+          <form onSubmit={searchPosts}>
+            <Select 
+              name="week_day" 
+              label="Dia da semana"
+              value={category}
+              onChange={(e) => { setCategory(e.target.value) }}
               options={[
-                { value: 'Informatica', label: 'Informatica'},
-                { value: 'Massagem relaxante', label: 'Massagem relaxante'},
-                { value: 'Quick Message', label: 'Quick Message'},
-                { value: 'Ventosa', label: 'Ventosa'}
+                { value: 1, label: 'Slide'},
+                
               ]}
             />
-          <Select 
-            name="week_day" 
-            label="Dia da semana"
-            value={week_day}
-            onChange={(e) => { setWeek_day(e.target.value) }}
-            options={[
-              { value: '0', label: 'domingo'},
-              { value: '1', label: 'segunda'},
-              { value: '2', label: 'terça'},
-              { value: '3', label: 'quarta'},
-              { value: '4', label: 'quinta'},
-              { value: '5', label: 'sexta'},
-              { value: '6', label: 'sabado'}
-            ]}
-          />
-          <Input 
-            type="time" 
-            name="time" 
-            label="Hora"
-            value={time}
-            onChange={(e) => { 
-              setTime(e.target.value)
-              }}
-            />
-          <button type="submit">
-            Buscar
-          </button>
-        </form>
-      </PageHeader>
-
-      <main>
-       
-        {teachers.map((teacher) => {
-          return( 
-            
-          <TeacherItem key= { teacher.id  } teacher={teacher}   />);
-        })}
-      </main>
-    </div>
+            <button type="submit">
+              Buscar
+            </button>
+          </form>
+          </div>
+        </div>
+        
+        </div>
+        
+      </div>
+    
   );
 }
 
