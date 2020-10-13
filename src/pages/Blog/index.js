@@ -21,15 +21,6 @@ function PostList()  {
   const [posts, setPosts] = useState([]);
   const [category, setCategory] = useState(0);
 
-  const settings = {
-    dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      initialSlide: 0,
-  }
-
   useEffect(  () => {
     const fetchData = async () => {
       const response = await api_wp.get('posts?_embed');
@@ -42,10 +33,9 @@ function PostList()  {
   async function searchPosts(e){
     e.preventDefault();
 
-    const response = await api_wp.get(`posts?categories=`+ category
-    );
+    const response = await api_wp.get(`posts?categories=`+ category);
     setPosts(response.data);
-    } 
+  } 
    
   return (
     
@@ -79,8 +69,9 @@ function PostList()  {
                   
               }
         </div>
-      <div id="page-post-list" className="container">
         <Header />
+      <div id="page-post-list" className="container">
+        
         <div className="row">
           <div className="col-md-8">
             <main>

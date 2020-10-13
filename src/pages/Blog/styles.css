@@ -1,17 +1,18 @@
 .container{
-    display:block;
-    
-    
-    
+    display:block;    
 }
-.container main{
+.container main,
+.container form{
     margin: 8rem auto auto auto;
     padding: 2rem;
-    width: 700px;
+    
     background-color:white;
     border-radius: 1%;
     border: 0;
 
+}
+.container main{
+    width: 700px;
 }
 .post-thumbnail-index .post{
     margin:0!important;
@@ -45,23 +46,22 @@
     position: relative;
     max-width: 600px;
     margin-left:8rem;
+    margin-top:14rem;
+    font-size: 16px;
+    text-align: left;
+    
 }
 .slide .center a{
     margin: 0;
-    text-align: left;
-    position: absolute;
-    top: 50%;
     
-    left: 10%;
+    font-size: 26px;
+   
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
 .slide .center p{
     margin: 0;
-    text-align: left;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+
+    
+    color: #fff;
 }

@@ -29,7 +29,7 @@ const TeacherItem = ({ teacher }) => {
           
           <div>
               {
-                teacher.services ?
+                teacher.service ?
                   <div className="services">
                     {teacher.service.map((service) => {
                       return( 

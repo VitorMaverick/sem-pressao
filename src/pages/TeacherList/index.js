@@ -2,7 +2,7 @@
 import React, { useState, FormEvent, useContext, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import Header  from "../../components/Header";
-import TeacherItem, { Teacher } from "../../components/TeacherItem";
+import TeacherItem from "../../components/TeacherItem";
 import "./styles.css";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
@@ -14,8 +14,6 @@ import "../../assets/styles/global.css"
 
 function TeacherList()  {
   const [teachers, setTeachers] = useState([]);
-  
-  
 
   const [subject, setSubject] = useState('');
   const [week_day, setWeek_day] = useState('');
