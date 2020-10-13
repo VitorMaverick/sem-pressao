@@ -29,9 +29,9 @@ const TeacherItem = ({ teacher }) => {
           
           <div>
               {
-                teacher.service ?
+                teacher.services ?
                   <div className="services">
-                    {teacher.service.map((service) => {
+                    {teacher.services.map((service) => {
                       return( 
                       <ul>
                         <li><span>{service.subject}</span></li>
