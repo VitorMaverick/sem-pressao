@@ -24,7 +24,7 @@ const SingleComponent = ({ post, media }) => {
                         <div class="row justify-content-center single-title">
                             <div class="col-md-9"></div>
                            
-                                <div>
+                                <div className="single-title">
                                     <h1 > {post.title.rendered} </h1>
                                 </div>
                                
@@ -35,7 +35,7 @@ const SingleComponent = ({ post, media }) => {
                             <div class="col-md-9 mt-4 mb-4">
                                 <div class="content">
                                         
-                                            <div className="content" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>              
+                                            <div className="single-content" dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>              
                                       </div>
                             </div>
                         </div>

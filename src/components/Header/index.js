@@ -24,16 +24,28 @@ export default function Header() {
             </div>
 
             <div class="container">
+            <div class="row d-flex align-items-center">
+        <div class=" col-sm-3 col-1 float-left ">
+            <div class="logo  ">
+             
+              <h1 class="text-light text-nowrap"><a href="#intro" class="scrollto"><span>Sem Pressão</span></a></h1>
+             
+            </div>
+        </div>
+        <div class=" col-sm-9 col-11  text-right ">
+          <nav class ="main-nav main-menu navbar navbar-expand-md navbar-light navbar-offcanvas float-right " role ="navigation" >
 
-                <div class="logo float-left">
-                    <h1 class="text-light"><a href="#intro" class="scrollto"><span>Sem Pressão</span></a></h1>
-                </div>
+             
+             <button id="navToggle" class ="navbar-toggler ml-auto" type ="button" data-toggle ="collapse"
+             data-target ="#bs-example-navbar-collapse-1" aria-controls ="bs-example-navbar-collapse-1"
+             aria-expanded ="false" >
+            <span class ="navbar-toggler-icon"> </span>
+            </button>
 
-                <nav class="main-nav float-right d-none d-lg-block">
-                    <ul>
-                        <li>
-
-                            <Link
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    <Link
                                 to="/#intro"
                                 activeClass="intro"
 
@@ -108,8 +120,16 @@ export default function Header() {
                                 </li>
                             }
                         
-                    </ul>
-                </nav>
+                </ul>
+                </div>
+          </nav>
+        </div>
+      </div>
+
+
+                
+
+              
 
             </div>
 

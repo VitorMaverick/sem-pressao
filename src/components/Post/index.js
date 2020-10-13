@@ -10,10 +10,10 @@ const PostItem = ({ post, index }) => {
   return (
     <article id="blog-posts" class="artigo">
      
-      <div class="card flex-lg-row  h-md-250 wow bounceInUp" data-wow-duration="1.4s">
+      <div class="card flex-row  h-md-250 wow bounceInUp" data-wow-duration="1.4s">
           <div class="post-thumbnail">
             {
-                post._embedded['wp:featuredmedia'][0].source_url?
+                post._embedded?
                 //tamanho definido por post_thumbnail_size()
                 <img className="card-img-right d-flex d-none " src={post._embedded['wp:featuredmedia'][0].source_url}/>
 

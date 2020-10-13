@@ -19,12 +19,14 @@ import {Link} from "react-router-dom"
 
 function PostList()  {
   const [posts, setPosts] = useState([]);
+  const [postSlider, setPostSlider] = useState([]);
   const [category, setCategory] = useState(0);
 
   useEffect(  () => {
     const fetchData = async () => {
       const response = await api_wp.get('posts?_embed');
       setPosts(response.data);
+      setPostSlider(response.data);
       console.log(posts);
     }
     fetchData();
@@ -42,10 +44,10 @@ function PostList()  {
     <div>
       <div className="post-thumbnail-index">
         {
-                  posts.length?
+                  postSlider.length?
                   //tamanho definido por post_thumbnail_size()
                   <Slider >
-                  {posts.map((post, index) => {
+                  {postSlider.map((post, index) => {
                     return( 
                       <div key={index}
                       style={{ background: `url('${post._embedded['wp:featuredmedia'][0].source_url}') no-repeat center center` }}
@@ -87,12 +89,13 @@ function PostList()  {
           <div className="col-md-4">
           <form onSubmit={searchPosts}>
             <Select 
-              name="week_day" 
-              label="Dia da semana"
+              name="category" 
+              label="Selecione uma categoria"
               value={category}
               onChange={(e) => { setCategory(e.target.value) }}
               options={[
-                { value: 1, label: 'Slide'},
+                { value: 1, label: 'Slider'},
+                { value: 3, label: 'Sem categoria'},
                 
               ]}
             />
