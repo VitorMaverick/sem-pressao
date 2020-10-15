@@ -10,7 +10,7 @@ const PostItem = ({ post, index }) => {
   return (
     <article id="blog-posts" class="artigo">
      
-      <div class="card flex-row  h-md-250 wow bounceInUp" data-wow-duration="1.4s">
+      <div class="card flex-sm-row  h-md-250 wow bounceInUp" data-wow-duration="1.4s">
           <div class="post-thumbnail">
             {
                 post._embedded?
