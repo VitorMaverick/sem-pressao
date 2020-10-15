@@ -9,6 +9,7 @@ import Select from "../../components/Select";
 import api from "../../services/api";
 import { AuthContext } from "../../context/Auth";
 import "../../assets/styles/global.css"
+import reload from  "../../assets/images/reload.gif"
 
 
 
@@ -99,12 +100,14 @@ function TeacherList()  {
       </PageHeader>
 
       <main>
-       
-        {teachers.map((teacher) => {
+       {teachers?
+        teachers.map((teacher) => {
           return( 
             
           <TeacherItem key= { teacher.id  } teacher={teacher}   />);
-        })}
+        })
+        : 
+        <img className="reload" src={reload} />}
       </main>
     </div>
   );

@@ -5,7 +5,7 @@ import "../../assets/styles/global.css"
 import convertHourToMinutes from "../../utils/convertHoutToMinutes";
 import convertToDays from '../../utils/ConverteToDays';
 import {Link} from "react-router-dom";
-
+import reload from  "../../assets/images/reload.gif"
 
 
 
@@ -75,7 +75,7 @@ const TeacherItem = ({ teacher }) => {
               })}
           </div>
           :
-          'warnig'
+          <img className="reload" src={reload} />
         }
           <a href= {number} target="_blank" >
           <button  type="button">
