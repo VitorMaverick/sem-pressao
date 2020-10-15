@@ -109,7 +109,7 @@ export default function Header() {
                                         Editar perfil
                             </Link>
                             <hr/>
-                                <a class="dropdown-item" target="_blank" href="https://sem-pressao.000webhostapp.com/">Gerenciar posts</a>
+                                <a class="dropdown-item" target="_blank" href="http://shrouded-cliffs-29775.herokuapp.com/wp-admin">Gerenciar posts</a>
                                 
                             </div>
                         </li>
