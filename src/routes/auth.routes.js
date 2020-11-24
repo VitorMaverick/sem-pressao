@@ -6,6 +6,7 @@ import Form from '../pages/TeacherForm';
 import List from '../pages/TeacherList';
 import Blog from '../pages/Blog';
 import Single from '../pages/Single';
+import Promo from '../pages/Promo';
 
 function AuthRoutes() {
   return (
@@ -16,6 +17,7 @@ function AuthRoutes() {
       <Route path="/list" component={List} />
       <Route path="/blog" component={Blog} />
       <Route path="/single/:id" component={Single} />
+      <Route path="/promo" component={Promo} />
     </BrowserRouter>
   );
 }

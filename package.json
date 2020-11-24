@@ -20,7 +20,8 @@
     "react-router-hash-link": "^2.1.0",
     "react-scripts": "3.4.3",
     "react-slick": "^0.27.11",
-    "wow.js": "^1.2.2"
+    "wow.js": "^1.2.2",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "react-scripts start",
