@@ -10,9 +10,11 @@ import api from "../../services/api";
 import {AuthContext} from "../../context/Auth";
 import "../../assets/styles/global.css"
 import localDorImg from '../../img/localDor.jpg'
-
-
-
+import promo1 from '../../img/promo1.jpg'
+import promo2 from '../../img/promo2.jpg'
+import promo3 from '../../img/promo3.jpg'
+import promo4 from '../../img/promo4.jpg'
+import promo5 from '../../img/promo5.jpg'
 
 function PromoForm() {
   const history = useHistory();
@@ -69,7 +71,7 @@ function PromoForm() {
        />
 
       <main>
-        <form onSubmit={handleCreateClass}>
+        <form class="promoForm" onSubmit={handleCreateClass}>
           <fieldset>
             <legend>Dados Pessoas</legend>  
             <Input 
@@ -138,14 +140,95 @@ function PromoForm() {
               <label class="form-check-label" for="inlineCheckbox2">2</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled/>
-              <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">5</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">6</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">7</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">8</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">9</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">10</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">11</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">12</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
+              <label class="form-check-label" for="inlineCheckbox2">13</label>
             </div>
            
           </fieldset>
+            
 
-          <fieldset>
+          <fieldset >
             <legend>Pacotes da Black Friday</legend>
+            <div class="promoImgBlock">
+              <img class="promo" src={promo1}></img>
+            
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                </input>
+                <label class="form-check-label" for="inlineRadio1">Xô, estresse!</label>
+              </div>
+            </div>
+            <div class="promoImgBlock">
+              <img class="promo" src={promo2}></img>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></input>
+                <label class="form-check-label" for="inlineRadio2">Tchau, dor nos ombros</label>
+              </div>
+            </div>
+            <div class="promoImgBlock">
+              <img class="promo" src={promo3}></img>
+            
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
+                <label class="form-check-label" for="inlineRadio3">Adeus, dor nas costas!</label>
+              </div>
+            </div>
+            <div class="promoImgBlock">
+              <img class="promo" src={promo4}></img>
+            
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
+                <label class="form-check-label" for="inlineRadio3">Viva sem pressão!</label>
+              </div>
+            </div>
+            <div class="promoImgBlock">
+              <img class="promo" src={promo5}></img>
+           
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
+                <label class="form-check-label" for="inlineRadio3">Eventos e corporativo</label>
+              </div>
+            </div>
             
            
           </fieldset>

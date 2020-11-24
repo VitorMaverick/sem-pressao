@@ -1,5 +1,12 @@
 .localDor{
-    height: 400px;
+    height: 200px;
+    width: auto;
+}
+.promoForm{
+    margin-top: 0 !important;
+}
+.promo{
+    height: 200px;
     width: auto;
 }
 #page-teacher-form{
@@ -97,6 +104,24 @@
 }
 
 @media(min-width: 700px){
+    .localDor{
+        height: 400px;
+        width: auto;
+    }
+    .promoImgBlock{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .promoImgBlock .form-check{
+        padding: 2rem;
+    }
+    .promo{
+        height: 300px;
+        width: 300px;
+    }
     #page-teacher-form{
         max-width: 100vw;
     }
