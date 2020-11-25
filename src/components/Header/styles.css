@@ -4,8 +4,10 @@
   .main-nav{
     background-color: #fff;
   }
-  .scrollto{
+  .logo-menu{
     font-size: 26px;
+    position:fixed;
+    top:20px;
   }
 }
 

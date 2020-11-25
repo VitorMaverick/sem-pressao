@@ -28,7 +28,7 @@ export default function Header() {
         <div class=" col-sm-3 col-1 float-left ">
             <div class="logo  ">
              
-              <h1 class="text-light text-nowrap"><a href="#intro" class="scrollto"><span>Sem Pressão</span></a></h1>
+              <h1 class="text-light text-nowrap"><a href="#intro" class="scrollto logo-menu"><span>Sem Pressão</span></a></h1>
              
             </div>
         </div>
