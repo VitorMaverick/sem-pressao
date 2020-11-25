@@ -21,29 +21,38 @@ function PromoForm() {
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [genero, setGenero] = useState('');
-  const [idade, setIdade] = useState(Number);
   const [whatsapp, setWhatsapp] = useState('');
-  const [endereco, setEndereco] = useState('');
   const [queixa, setQueixa] = useState('');
-  const [localDor, setDor] = useState('');
-  const [pacote, setPacote] = useState('');
-  const [pagamento, setPagamento] = useState('');
+  const [localDor, setDor] = useState({});
+  const [pacote, setPacote] = useState({});
 
+  const handleLocalDorChange = (event) => {
+    // updating an object instead of a Map
+    setDor({...localDor, [event.target.name] : event.target.checked });
+}
 
+useEffect(() => {
+  console.log("checkedItems: ", localDor);
+}, [localDor]);  
+const handlePacoteChange = (event) => {
+  // updating an object instead of a Map
+  setPacote({...pacote, [event.target.name] : event.target.checked });
+}
+
+useEffect(() => {
+console.log("checkedItems: ", pacote);
+}, [pacote]);  
+ 
   function handleCreateClass(e) {
     e.preventDefault();
 
-    api.post('promo', {
+   /* api.post('promo', {
+      name,
       email,
-      genero,
-      idade,
       whatsapp,
-      endereco,
       queixa,
       localDor,
       pacote,
-      pagamento
     }).then(() => {
       alert('Cadastro realizado com sucesso');
 
@@ -51,17 +60,15 @@ function PromoForm() {
     }).catch(() => {
       alert('Erro no cadastro')
     })
-
+ */
     console.log(
+      name,
       email,
-      genero,
-      idade,
       whatsapp,
-      endereco,
       queixa,
       localDor,
       pacote,
-      pagamento
+     
     );
   }
 
@@ -74,12 +81,7 @@ function PromoForm() {
         <form class="promoForm" onSubmit={handleCreateClass}>
           <fieldset>
             <legend>Dados Pessoas</legend>  
-            <Input 
-              name="email" 
-              label="E-mail"
-              value={email} 
-              onChange={(e) =>{ setEmail(e.target.value)}}
-            />
+            
             <Input 
               name="name" 
               label="Nome completo"
@@ -87,16 +89,10 @@ function PromoForm() {
               onChange={(e) =>{ setName(e.target.value)}}
             />
             <Input 
-              name="genero" 
-              label="Gênero"
-              value={genero} 
-              onChange={(e) =>{ setGenero(e.target.value)}}
-            />
-            <Input 
-              name="idade" 
-              label="Idade"
-              value={idade} 
-              onChange={(e) =>{ setIdade(e.target.value)}}
+              name="email" 
+              label="E-mail"
+              value={email} 
+              onChange={(e) =>{ setEmail(e.target.value)}}
             />
             <Input 
               name="whatsapp" 
@@ -105,16 +101,6 @@ function PromoForm() {
               onChange={(e) =>{ setWhatsapp(e.target.value)}}
             />
             
-          </fieldset>
-          
-          <fieldset>
-            <legend>Endereço</legend>
-            <Textarea 
-              name="endereco" 
-              label="Endereço" 
-              value={endereco} 
-              onChange={(e) =>{ setEndereco(e.target.value)}}
-            />
           </fieldset>
 
           <fieldset>
@@ -132,56 +118,56 @@ function PromoForm() {
             <legend>Local da dor</legend>
             <img class="localDor" src={localDorImg}></img>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
-              <label class="form-check-label" for="inlineCheckbox1">1</label>
+              <input class="form-check-input" type="checkbox" id="checkDor1" value="1" name="1" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor1">1</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">2</label>
+              <input class="form-check-input" type="checkbox" id="checkDor2" value="2" name="2" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor2">2</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">3</label>
+              <input class="form-check-input" type="checkbox" id="checkDor3" value="3" name="3" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor3">3</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">4</label>
+              <input class="form-check-input" type="checkbox" id="checkDor4" value="4" name="4" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor4">4</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">5</label>
+              <input class="form-check-input" type="checkbox" id="checkDor5" value="5" name="5" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor5">5</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">6</label>
+              <input class="form-check-input" type="checkbox" id="checkDor6" value="6" name="6" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor6">6</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">7</label>
+              <input class="form-check-input" type="checkbox" id="checkDor7" value="6" name="7" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor7">7</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">8</label>
+              <input class="form-check-input" type="checkbox" id="checkDor8" value="8" name="8" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor8">8</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">9</label>
+              <input class="form-check-input" type="checkbox" id="checkDor9" value="9" name="9" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor9">9</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">10</label>
+              <input class="form-check-input" type="checkbox" id="checkDor10" value="10" name="10" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor10">10</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">11</label>
+              <input class="form-check-input" type="checkbox" id="checkDor11" value="11" name="11" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor11">11</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">12</label>
+              <input class="form-check-input" type="checkbox" id="checkDor12" value="12" name="12" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor12">12</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-              <label class="form-check-label" for="inlineCheckbox2">13</label>
+              <input class="form-check-input" type="checkbox" id="checkDor13" value="13" name="13" onChange={handleLocalDorChange}/>
+              <label class="form-check-label" for="checkDor13">13</label>
             </div>
            
           </fieldset>
@@ -193,15 +179,15 @@ function PromoForm() {
               <img class="promo" src={promo1}></img>
             
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                </input>
+                <input class="form-check-input" type="checkbox" name="Xo, estresse" id="inlineRadio1" value="option1" onChange={handlePacoteChange}>
+                  </input>
                 <label class="form-check-label" for="inlineRadio1">Xô, estresse!</label>
               </div>
             </div>
             <div class="promoImgBlock">
               <img class="promo" src={promo2}></img>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></input>
+                <input class="form-check-input" type="checkbox" name="Tchau, dor nos ombros" id="inlineRadio2" value="option2"  onChange={handlePacoteChange}/>
                 <label class="form-check-label" for="inlineRadio2">Tchau, dor nos ombros</label>
               </div>
             </div>
@@ -209,7 +195,7 @@ function PromoForm() {
               <img class="promo" src={promo3}></img>
             
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
+                <input class="form-check-input" type="checkbox" name="Adeus, dor nas costas" id="inlineRadio3" value="option3"  onChange={handlePacoteChange}/>
                 <label class="form-check-label" for="inlineRadio3">Adeus, dor nas costas!</label>
               </div>
             </div>
@@ -217,16 +203,16 @@ function PromoForm() {
               <img class="promo" src={promo4}></img>
             
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
-                <label class="form-check-label" for="inlineRadio3">Viva sem pressão!</label>
+                <input class="form-check-input" type="checkbox" name="Viva sem pressao" id="inlineRadio4" value="option4"  onChange={handlePacoteChange}/>
+                <label class="form-check-label" for="inlineRadio4">Viva sem pressão!</label>
               </div>
             </div>
             <div class="promoImgBlock">
               <img class="promo" src={promo5}></img>
            
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></input>
-                <label class="form-check-label" for="inlineRadio3">Eventos e corporativo</label>
+                <input class="form-check-input" type="checkbox" name="Eventos e corporativo" id="inlineRadio5" value="option5"  onChange={handlePacoteChange}/>
+                <label class="form-check-label" for="inlineRadio5">Eventos e corporativo</label>
               </div>
             </div>
             

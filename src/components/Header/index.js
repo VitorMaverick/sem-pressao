@@ -23,7 +23,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container menu-principal">
             <div class="row d-flex align-items-center">
         <div class=" col-sm-3 col-1 float-left ">
             <div class="logo  ">
