@@ -23,30 +23,42 @@ function PromoForm() {
   const [name, setName] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [queixa, setQueixa] = useState('');
-  const [localDor, setDor] = useState({});
-  const [pacote, setPacote] = useState({});
+  const [localDorAux, setDorAux] = useState({});
+  const [pacoteAux, setPacoteAux] = useState({});
+  const [localDor, setDor] = useState('');
+  const [pacote, setPacote] = useState('');
 
   const handleLocalDorChange = (event) => {
     // updating an object instead of a Map
-    setDor({...localDor, [event.target.name] : event.target.checked });
+    setDorAux({...localDorAux, [event.target.name] : event.target.checked });
+
 }
 
 useEffect(() => {
-  console.log("checkedItems: ", localDor);
-}, [localDor]);  
+  console.log("checkedItems: ", localDorAux);
+  let stringLocalDor = convertJson(localDorAux);
+  setDor(stringLocalDor);
+}, [localDorAux]);  
 const handlePacoteChange = (event) => {
   // updating an object instead of a Map
-  setPacote({...pacote, [event.target.name] : event.target.checked });
+  setPacoteAux({...pacoteAux, [event.target.name] : event.target.checked });
 }
 
 useEffect(() => {
-console.log("checkedItems: ", pacote);
-}, [pacote]);  
+console.log("checkedItems: ", pacoteAux);
+let stringPacote = convertJson(pacoteAux);
+setPacote(stringPacote);
+}, [pacoteAux]);  
+
+function convertJson(item){
+  let string = JSON.stringify(item);
+  return string;
+}
  
   function handleCreateClass(e) {
     e.preventDefault();
 
-   /* api.post('promo', {
+   api.post('costumer', {
       name,
       email,
       whatsapp,
@@ -60,7 +72,8 @@ console.log("checkedItems: ", pacote);
     }).catch(() => {
       alert('Erro no cadastro')
     })
- */
+    
+    
     console.log(
       name,
       email,
